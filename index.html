@@ -1,0 +1,465 @@
+<title>Elias Rodrigues | Portfólio</title>
+<meta name="description" content="Portfólio de Elias Rodrigues. Engenharia de Dados, arquiteturas automatizadas e orquestração de sistemas complexos.">
+
+<link rel="stylesheet" href="style.css">
+
+
+<!-- Fundo Fotográfico NASA (Início da página) -->
+<!-- Nota: Substitua a URL abaixo pelo caminho da sua imagem da NASA, ex: url('img/foto-nasa.jpg') -->
+<div class="space-grid-bg" aria-hidden="true"></div>
+
+<a href="#conteudo-principal" class="sr-only skip-link">Pular para o conteúdo principal</a>
+
+<header role="banner" class="navbar">
+    <div class="brand-logo">
+        <a href="/" aria-label="Página inicial">
+            <span class="logo-icon">✧</span>Rod.io
+        </a>
+    </div>
+
+    <nav aria-label="Navegação principal">
+        <ul class="nav-links">
+            <li><a href="#home">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#cases">Cases</a></li>
+            <li><a href="#credenciais">Premiações e Certificados</a></li>
+            <li><a href="#trajetoria">Trajetória</a></li>
+    
+        </ul>
+    </nav>
+
+        <div class="nav-controls" style="display: flex; align-items: center; gap: 1rem;">
+        <!-- Seletor de Idioma -->
+        <div class="lang-selector" aria-label="Seletor de idioma">
+            <a href="en/index-en.html" aria-label="Mudar para Inglês">EN</a>
+            <span class="separator" aria-hidden="true">|</span>
+            <a href="/" aria-current="page" aria-label="Português selecionado">PT</a>
+        </div>
+
+        <!-- Botão de Tema -->
+        <button id="theme-toggle" class="theme-btn" aria-label="Alternar tema claro/escuro">
+            <span class="moon-icon">🌙</span>
+            <span class="sun-icon" style="display: none;">☀️</span>
+        </button>
+        </div>
+</header>
+
+<main id="conteudo-principal" role="main">
+    
+    <!-- Apresentação (Hero) -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1>Elias Rodrigues</h1>
+            <h2 class="subtitulo">
+                Engenharia de Dados e Desenvolvimento Backend
+            </h2>
+            <div class="hero-actions">
+            <!-- Contêiner do Dropdown de Contato -->
+            <div class="contact-dropdown-container">
+                <button type="button" class="btn-primary contact-btn" aria-haspopup="true" aria-expanded="false">
+                    Entrar em Contato <span style="font-size: 0.7em; margin-left: 5px;">▼</span>
+                </button>
+                
+                <!-- Balão com as opções -->
+                <div class="contact-balloon">
+                    <a href="https://linkedin.com/in/eliasrod-io" target="_blank" rel="noopener noreferrer">
+                        <span class="icon-badge">in</span> LinkedIn
+                    </a>
+                    <a href="https://wa.me/5511964482901?text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20me%20interessei!" target="_blank" rel="noopener noreferrer">
+                        <span class="icon-badge">wa</span> WhatsApp
+                    </a>
+                    <a href="mailto:elias.ti.rodrigues@gmail.com">
+                        <span class="icon-badge">@</span> E-mail
+                    </a>
+                </div>
+            </div>
+            <a href="Documents/Elias_Rodrigues_Curriculo.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">Visualizar CV</a>
+        </div>
+
+    </section>
+
+    <!-- Sobre Mim (Conexão Astronomia + Dados) -->
+    <section id="sobre" class="section-container" aria-labelledby="titulo-sobre">
+        <div class="about-card" style="text-align: justify;">
+            <h2 id="titulo-sobre" class="sr-only">Sobre Mim</h2>
+            <p>
+                Sou graduando em Sistemas de Informação na Universidade de São Paulo (USP), medalhista em olimpíadas de Conhecimento e reconhecido pelo Ministério da Ciência, Tecnologia e Inovação (MCTI). Tenho uma paixão antiga por astronomia (que não por acaso ambienta este portfólio) que me inspira a buscar soluções inovadoras e práticas. 
+            </p>
+            <p>
+                Atualmente, produzo soluções em inteligência de dados, unindo a análise com a aplicação das regras de negócios e a inteligência interpessoal para alcançar resultados de impacto. Tenho histórico de atuação em projetos de automação, modelagem de dados, implementação de assistentes virtuais, treinamentos, otimização de processos, mas não fico apenas na teoria do código.
+            </p>
+            <p> 
+                Convido você a explorar meu portfólio para descobrir como traduzo minhas ideias em soluções eficientes.
+            </p>
+        </div>
+    </section>
+
+    <!-- Laboratório de Código & Open Source (Projetos) -->
+    <section id="projetos" class="section-container" aria-labelledby="titulo-projetos">
+        <h2 id="titulo-projetos" class="section-title">
+            <span class="teal-text">|</span>Projetos: Laboratório de Código & Open Source
+        </h2>
+        
+        <div class="cases-grid">
+            <!-- Projeto 1: RPA -->
+            <article class="case-card node-card">
+                <header class="case-header">
+                    <span style="display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; color: var(--teal-neon); border: 1px solid rgba(0, 242, 254, 0.2); background-color: rgba(0, 242, 254, 0.05); padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;">
+                        Benchmark Técnico
+                    </span>
+                    <h3>RPA Performance Lab: Otimização & Benchmark</h3>
+                </header>
+                <div class="case-body">
+                    <p>
+                        Automação de registros a partir de bases CSV com análise comparativa de arquiteturas. Redução do tempo de execução de ~60 minutos (simulação de pixels/interface) para apenas 3 minutos (manipulação direta do DOM), incluindo análise crítica de estabilidade versus detecção anti-bot.
+                    </p>
+                </div>
+                <footer class="case-footer">
+                    <ul class="tech-tags" aria-label="Tecnologias utilizadas">
+                        <li>Python</li>
+                        <li>Playwright</li>
+                        <li>PyAutoGUI</li>
+                        <li>Pandas</li>
+                    </ul>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="https://github.com/eliasrod-io/rpa-performance-lab-python" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                            Ver Repositório no GitHub <span>&nearr;</span>
+                        </a>
+                    </div>
+                </footer>
+            </article>
+
+            <!-- Projeto 2: Churn -->
+            <article class="case-card node-card">
+                <header class="case-header">
+                    <span style="display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; color: var(--teal-neon); border: 1px solid rgba(0, 242, 254, 0.2); background-color: rgba(0, 242, 254, 0.05); padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;">
+                        Data Analytics & Strategy
+                    </span>
+                    <h3>Modelagem Preditiva de Churn & Estratégia de Retenção</h3>
+                </header>
+                <div class="case-body">
+                    <p>
+                        Diagnóstico e mapeamento comportamental em uma base de mais de 50.000 clientes. Identificação dos principais fatores de cancelamento (contratos mensais, faixa etária e atritos no suporte) e simulação de cenários projetando a redução da taxa de churn de 56,75% para 9,89%.
+                    </p>
+                </div>
+                <footer class="case-footer">
+                    <ul class="tech-tags" aria-label="Tecnologias utilizadas">
+                        <li>Python</li>
+                        <li>Pandas</li>
+                        <li>Plotly Express</li>
+                        <li>Data Discovery</li>
+                    </ul>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="https://github.com/eliasrod-io/churn-analysis-strategy" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                            Ver Repositório no GitHub <span>&nearr;</span>
+                        </a>
+                    </div>
+                </footer>
+            </article>
+        </div>
+
+        <!-- Botão de Saída Discreto -->
+        <div style="text-align: center; margin-top: 3.5rem;">
+            <a href="https://github.com/eliasrod-io" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted); text-decoration: none; font-family: var(--font-mono); font-size: 0.95rem; letter-spacing: 0.5px; border-bottom: 1px dashed var(--text-muted); padding-bottom: 3px; transition: color 0.3s ease;">
+                Ver todos os repositórios no GitHub &rarr;
+            </a>
+        </div>
+    </section>
+
+    <!-- Cases de Impacto -->
+    <section id="cases" class="section-container" aria-labelledby="titulo-cases">
+        <h2 id="titulo-cases" class="section-title">
+            <span class="teal-text">|</span> Cases de Impacto
+        </h2>
+        
+        <div class="cases-grid">
+            
+            <!-- Case 1: Automação de Workflows -->
+            <article class="case-card node-card">
+                <header class="case-header">
+                    <span style="display: inline-block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--teal-neon); border: 1px solid rgba(0, 242, 254, 0.2); background-color: rgba(0, 242, 254, 0.05); padding: 0.3rem 0.7rem; border-radius: 4px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;">
+                        &gt;70% de Ganho em Eficiência
+                    </span>
+                    <h3>Otimização de Processos e Workflows Automatizados</h3>
+                    <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--purple-neon); margin-top: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px dashed rgba(157, 78, 221, 0.3); padding-bottom: 0.5rem;">
+                        Contexto: Unimed CNU | Operação de Saúde Suplementar
+                    </p>
+                </header>
+                <div class="case-body">
+                    <p style="margin-bottom: 0.8rem;">
+                        <strong style="color: var(--text-main);">O Gargalo:</strong> Protocolos manuais dispersos entre múltiplos sistemas legados geravam um Tempo Médio de Trabalho (TMT) de 5 minutos por solicitação, sobrecarregando a equipe.
+                    </p>
+                    <p style="margin-bottom: 0.8rem;">
+                        <strong style="color: var(--text-main);">A Solução:</strong> Desenho e homologação de um fluxo automatizado end-to-end integrando a migração para Salesforce, captura de dados e notificações multicanal (WhatsApp e E-mail), eliminando intervenções humanas repetitivas.
+                    </p>
+                    <p>
+                        <strong style="color: var(--text-main);">O Resultado:</strong> Redução do TMT de 5 para 1,5 a 2 minutos por protocolo, liberando capacidade produtiva imediata da operação.
+                    </p>
+                </div>
+                <footer class="case-footer">
+                    <ul class="tech-tags" aria-label="Tecnologias utilizadas">
+                        <li>Python</li>
+                        <li>Salesforce</li>
+                        <li>Automação de Workflows</li>
+                        <li>Integração de Sistemas</li>
+                        <li>Otimização de Processos</li>
+                    </ul>
+                </footer>
+            </article>
+
+            <!-- Case 2: Agentes de IA Generativa -->
+            <article class="case-card node-card">
+                <header class="case-header">
+                    <span style="display: inline-block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--teal-neon); border: 1px solid rgba(0, 242, 254, 0.2); background-color: rgba(0, 242, 254, 0.05); padding: 0.3rem 0.7rem; border-radius: 4px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;">
+                        -17% no TMA (Tempo Médio de Atend.)
+                    </span>
+                    <h3>Implementação de IA Generativa na Operação de Acolhimento</h3>
+                    <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--purple-neon); margin-top: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px dashed rgba(157, 78, 221, 0.3); padding-bottom: 0.5rem;">
+                        Contexto: Unimed CNU | Escala para +150 colaboradores
+                    </p>
+                </header>
+                <div class="case-body">
+                    <p style="margin-bottom: 0.8rem;">
+                        <strong style="color: var(--text-main);">O Gargalo:</strong> Alto volume de consultas a regras regulatórias complexas (tabelas TUSS e diretrizes de medicação) somado à necessidade de manter empatia e precisão no suporte ao cliente.
+                    </p>
+                    <p style="margin-bottom: 0.8rem;">
+                        <strong style="color: var(--text-main);">A Solução:</strong> Criação e orquestração de 2 assistentes virtuais baseados em LLMs (Gemini) — um motor de busca semântica para regras assistenciais e um analisador de tom para suporte e triagem em tempo real.
+                    </p>
+                    <p>
+                        <strong style="color: var(--text-main);">O Resultado:</strong> Queda de 17% no TMA e aumento do índice de satisfação de 8,2 para 8,5, comprovando a eficácia da IA aplicada na ponta da operação.
+                    </p>
+                </div>
+                <footer class="case-footer">
+                    <ul class="tech-tags" aria-label="Tecnologias utilizadas">
+                        <li>IA Generativa</li>
+                        <li>LLMs (Gemini)</li>
+                        <li>Engenharia de Prompt</li>
+                        <li>Otimização de Atendimento</li>
+                    </ul>
+                </footer>
+            </article>
+
+            <!-- Case 3: Pipeline de Dados -->
+            <article class="case-card node-card">
+                <header class="case-header">
+                    <span style="display: inline-block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--teal-neon); border: 1px solid rgba(0, 242, 254, 0.2); background-color: rgba(0, 242, 254, 0.05); padding: 0.3rem 0.7rem; border-radius: 4px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;">
+                        Rotina 5x Mais Rápida (10 min &rarr; 2 min)
+                    </span>
+                    <h3>Automação de Extração e Higienização de Dados Operacionais</h3>
+                    <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--purple-neon); margin-top: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px dashed rgba(157, 78, 221, 0.3); padding-bottom: 0.5rem;">
+                        Contexto: Unimed CNU | Inteligência e Planejamento
+                    </p>
+                </header>
+                <div class="case-body">
+                    <p style="margin-bottom: 0.8rem;">
+                        <strong style="color: var(--text-main);">O Gargalo:</strong> Dependência de rotinas manuais e lentas de extração de dados para acompanhar volumetria, tráfego e cumprimento de SLAs críticos.
+                    </p>
+                    <p style="margin-bottom: 0.8rem;">
+                        <strong style="color: var(--text-main);">A Solução:</strong> Desenho de novos KPIs de atendimento e desenvolvimento de rotinas em Python (Pandas) combinadas a consultas estruturadas em SQL Server para extração e limpeza automática de bases volumosas.
+                    </p>
+                    <p>
+                        <strong style="color: var(--text-main);">O Resultado:</strong> Redução no tempo de tratamento da rotina de 10 para apenas 2 minutos, garantindo dados consistentes e integrados para tomada de decisão ágil.
+                    </p>
+                </div>
+                <footer class="case-footer">
+                    <ul class="tech-tags" aria-label="Tecnologias utilizadas">
+                        <li>Python (Pandas)</li>
+                        <li>SQL Server</li>
+                        <li>Modelagem de Dados</li>
+                        <li>KPIs & SLAs</li>
+                        <li>Higienização de Dados</li>
+                    </ul>
+                </footer>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Reconhecimentos & Credenciais -->
+        <section id="credenciais" class="section-container" aria-labelledby="titulo-credenciais">
+            <h2 id="titulo-credenciais" class="section-title">
+                <span class="teal-text">/</span> Reconhecimentos & Credenciais
+            </h2>
+            
+            <!-- Bloco 1 -->
+            <h3 class="block-subtitle">Bloco 1: Mérito Científico & Raciocínio Quantitativo</h3>
+            <p class="block-desc">Este bloco valida a narrativa de astronomia e capacidade analítica profunda que ancora o seu portfólio.</p>
+            
+            <div class="cases-grid" style="margin-bottom: 4rem;">
+                <!-- Card 1: MCTI -->
+                <article class="case-card highlight-card">
+                    <span class="badge-ano">2022</span>
+                    <header class="case-header">
+                        <span class="credencial-tag">Ministério da Ciência e Tecnologia</span>
+                        <h3>Medalha de Honra ao Mérito Científico</h3>
+                        <p class="credencial-sub">Categoria: Reconhecimento Nacional</p>
+                    </header>
+                    <div class="case-body">
+                        <p>Concedida pelo governo federal (MCTI) em reconhecimento ao histórico de destaque e desempenho consistente em competições científicas nacionais.</p>
+                    </div>
+                </article>
+
+                <!-- Card 2: OIMSF -->
+                <article class="case-card">
+                    <span class="badge-ano">2022</span>
+                    <header class="case-header">
+                        <span class="credencial-tag">Rede POC / Prog. Sem Fronteiras</span>
+                        <h3>Olimp. Internacional Matemática Sem Fronteiras</h3>
+                        <p class="credencial-sub">Destaque: Ouro Nacional e Regional</p>
+                    </header>
+                    <div class="case-body">
+                        <p>Avaliação de resolução de problemas lógicos complexos, raciocínio quantitativo aplicado e formulação de hipóteses matemáticas estruturadas.</p>
+                    </div>
+                </article>
+
+                <!-- Card 3: OBA -->
+                <article class="case-card">
+                    <span class="badge-ano">2021-22</span>
+                    <header class="case-header">
+                        <span class="credencial-tag">SAB & Agência Espacial (AEB)</span>
+                        <h3>Olimp. Brasileira de Astronomia e Astronáutica</h3>
+                        <p class="credencial-sub">Destaque: Ouro (2022) e Prata (2021)</p>
+                    </header>
+                    <div class="case-body">
+                        <p>Conhecimento aprofundado em física, mecânica celeste e análise de dados astronômicos, base conceitual que inspira o design analítico deste portfólio.</p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Bloco 2 -->
+            <h3 class="block-subtitle">Bloco 2: Certificações & Programas Globais</h3>
+            <p class="block-desc">Este bloco atesta preparo de liderança em ambientes de alta exigência e domínio ferramental moderno.</p>
+            
+            <div class="cases-grid">
+                <!-- Card 4: Aspire Leaders -->
+                <article class="case-card highlight-card">
+                    <span class="badge-ano">2025</span>
+                    <header class="case-header">
+                        <span class="credencial-tag">Aspire Institute (Harvard)</span>
+                        <h3>Aspire Leaders Program</h3>
+                        <p class="credencial-sub">Credencial: Liderança Internacional</p>
+                    </header>
+                    <div class="case-body">
+                        <p>Formação seletiva global para jovens de alto potencial, cobrindo liderança adaptativa, pensamento crítico, tomada de decisão estratégica e mentoria internacional.</p>
+                    </div>
+                </article>
+
+                <!-- Card 5: Google Data Analytics -->
+                <article class="case-card">
+                    <span class="badge-ano" style="color: var(--text-muted); border-color: rgba(139, 128, 166, 0.3);">Em andamento</span>
+                    <header class="case-header">
+                        <span class="credencial-tag">Google (Coursera)</span>
+                        <h3>Google Data Analytics Professional Certificate</h3>
+                        <p class="credencial-sub">Credencial: Certificação Profissional</p>
+                    </header>
+                    <div class="case-body">
+                        <p>Metodologias estruturadas de análise de dados, higienização de bases volumosas, SQL analítico, programação em R/Python e visualização orientada a negócio.</p>
+                    </div>
+                </article>
+
+                <!-- Card 6: Transforme-se -->
+                <article class="case-card">
+                    <span class="badge-ano" style="color: var(--text-muted); border-color: rgba(139, 128, 166, 0.3);">Em andamento</span>
+                    <header class="case-header">
+                        <span class="credencial-tag">Serasa Experian & Instituto PROA</span>
+                        <h3>Desenvolvimento Front-End</h3>
+                        <p class="credencial-sub">Credencial: Capacitação Intensiva</p>
+                    </header>
+                    <div class="case-body">
+                        <p>Formação intensiva em desenvolvimento de interfaces web, utilizando HTML5, CSS3  e JavaScript para criação de aplicações responsivas, estruturação semântica e boas práticas de arquitetura front-end. .</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    <!-- Trajetória Estratégica -->
+    <section id="trajetoria" class="section-container" aria-labelledby="titulo-trajetoria">
+        <h2 id="titulo-trajetoria" class="section-title">
+            <span class="teal-text">|</span> Trajetória Estratégica
+        </h2>
+        
+        <div class="timeline">
+            <!-- Marco 1 -->
+            <div class="timeline-item">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2026 - Atual</span>
+                    <h3 class="timeline-title">Itaú Unibanco</h3>
+                    <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--purple-neon); margin-bottom: 0.5rem; border-bottom: 1px dashed rgba(157, 78, 221, 0.3); padding-bottom: 0.5rem; display: inline-block;">
+                        Estagiário em Risco Fiduciário
+                    </p>
+                    <p class="timeline-desc">Análise de indicadores regulatórios, acompanhamento de risco e modelagem operacional aplicada ao setor financeiro.</p>
+                </div>
+            </div>
+
+            <!-- Marco 2 -->
+            <div class="timeline-item">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2023 - 2026</span>
+                    <h3 class="timeline-title">Unimed CNU</h3>
+                    <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--purple-neon); margin-bottom: 0.5rem; border-bottom: 1px dashed rgba(157, 78, 221, 0.3); padding-bottom: 0.5rem; display: inline-block;">
+                        Planejamento, Automação & IA Generativa
+                    </p>
+                    <p class="timeline-desc">Interlocução técnica entre operação e TI. Liderança na implementação de agentes em LLM para 150+ colaboradores e desenvolvimento de fluxos automatizados com Python e SQL, reduzindo tempos de trabalho em mais de 70%.</p>
+                </div>
+            </div>
+
+            <!-- Marco 3 -->
+            <div class="timeline-item">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2024</span>
+                    <h3 class="timeline-title">Aspire Leaders Program <span style="font-size: 0.85rem; font-weight: normal; opacity: 0.7;">(Fundado por professores de Harvard / Aspire Institute)</span></h3>
+                    <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--purple-neon); margin-bottom: 0.5rem; border-bottom: 1px dashed rgba(157, 78, 221, 0.3); padding-bottom: 0.5rem; display: inline-block;">
+                        Liderança Global & Tomada de Decisão
+                    </p>
+                    <p class="timeline-desc">Formação internacional competitiva para jovens de alto potencial. Foco em liderança adaptativa, redes transnacionais e tomada de decisão estratégica em cenários complexos.</p>
+                </div>
+            </div>
+
+            <!-- Marco 4 -->
+            <div class="timeline-item">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2023 - 2028</span>
+                    <h3 class="timeline-title">Universidade de São Paulo (USP)</h3>
+                    <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--purple-neon); margin-bottom: 0.5rem; border-bottom: 1px dashed rgba(157, 78, 221, 0.3); padding-bottom: 0.5rem; display: inline-block;">
+                        Bacharelado em Sistemas de Informação
+                    </p>
+                    <p class="timeline-desc">Estruturação teórica profunda em algoritmos, arquitetura de computadores, engenharia de software e análise quantitativa.</p>
+                </div>
+            </div>
+
+            <!-- Marco 5 -->
+            <div class="timeline-item">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2020 - 2022</span>
+                    <h3 class="timeline-title">Etec Martin Luther King</h3>
+                    <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--purple-neon); margin-bottom: 0.5rem; border-bottom: 1px dashed rgba(157, 78, 221, 0.3); padding-bottom: 0.5rem; display: inline-block;">
+                        Ensino Técnico em Mecatrônica
+                    </p>
+                    <p class="timeline-desc">A base prática de engenharia. Desenvolvimento de sistemas embarcados, programação em C e projeto aplicado em IoT (Horta Automatizada com sensores de solo/clima e acionamento via app).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-action">
+            <a href="https://linkedin.com/in/eliasrod-io" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                Acompanhar jornada no LinkedIn
+            </a>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <hr class="dotted-divider">
+    <p>&copy; 2026 Elias Rodrigues. Transmitindo do Quadrante da Terra.</p>
+</footer>
+
+<!-- Script de animações (Opcional, caso tenha criado o arquivo script.js) -->
+<script src="script.js" defer></script>
+

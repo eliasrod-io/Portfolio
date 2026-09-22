@@ -1,0 +1,560 @@
+/* =========================================
+   Variáveis CSS (Design System & Tematização)
+   ========================================= */
+:root {
+  /* Paleta Base: Espaço Profundo */
+  --bg-deep-space: #070512;      
+  --bg-surface: #100b1f;         
+  
+  /* Cores de Destaque */
+  --teal-neon: #00f2fe;          
+  --purple-neon: #9d4edd;        
+  
+  /* Tipografia (Usando system fonts para performance de SEO/Carregamento) */
+  --text-main: #e2dced;          
+  --text-muted: #8b80a6;         
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Fira Code', 'JetBrains Mono', ui-monospace, monospace;
+  
+  /* Estrutura e Comportamento */
+  --container-width: 900px;
+  --radius-md: 8px;
+  --transition-smooth: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --header-height: 80px; /* Variável para evitar CLS no scroll */
+}
+
+/* =========================================
+   Reset Global & Otimizações de Renderização
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* Scroll suave otimizado */
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height); /* Evita que o menu fixo cubra as âncoras */
+}
+
+body {
+  background-color: var(--bg-deep-space);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 0;
+  overflow-x: hidden;
+  /* Melhora a legibilidade das fontes */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Foco global para Acessibilidade (WCAG) - Essencial para SEO */
+:focus-visible {
+  outline: 2px dashed var(--teal-neon);
+  outline-offset: 4px;
+}
+
+/* =========================================
+   Efeito: Starfield (Background Animado PURO CSS)
+   ========================================= */
+
+@keyframes move-twink-back {
+    from { background-position: 0 0, 40px 60px, 130px 270px, 70px 100px; }
+    to { background-position: -10000px 5000px, -9960px 5060px, -9870px 5270px, -9930px 5100px; }
+}
+
+.space-grid-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  background-color: var(--bg-deep-space);
+  
+  /* 
+   * Gerador de estrelas procedural no CSS
+   * 4 camadas de gradientes radiais criando estrelas de diferentes tamanhos
+   */
+  background-image: 
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 4px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 3px),
+    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 4px),
+    radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 3px);
+  
+  /* Tamanhos variados para espalhar as estrelas */
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  
+  /* Posições iniciais desencontradas para quebrar o padrão de repetição */
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  
+  /* Animação lenta e infinita simulando a rotação/movimento no espaço */
+  animation: move-twink-back 800s linear infinite;
+  pointer-events: none;
+}
+
+/* Segunda camada: Névoa/Nebulosa suave em roxo e ciano para dar volume */
+.space-grid-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: 
+    radial-gradient(circle at 15% 50%, rgba(157, 78, 221, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(0, 242, 254, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* =========================================
+   Utilitários e Acessibilidade Oculta
+   ========================================= */
+.teal-text { color: var(--teal-neon); }
+
+/* sr-only padrão do HTML5 Boilerplate - Oculta visualmente mas legível para bots/screen readers */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+.skip-link:focus {
+  position: fixed; top: 1rem; left: 1rem; z-index: 9999;
+  background-color: var(--bg-surface); color: var(--teal-neon);
+  border: 1px solid var(--teal-neon); padding: 1rem; 
+  border-radius: var(--radius-md); text-decoration: none;
+}
+
+/* =========================================
+   Navegação (Header Sticky + Glassmorphism)
+   ========================================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0 1.5rem; 
+  height: var(--header-height);
+  width: 100%;
+  
+  /* Glassmorphism performático */
+  background: rgba(7, 5, 18, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(157, 78, 221, 0.15);
+  transition: all var(--transition-smooth);
+}
+
+.brand-logo a {
+  font-family: var(--font-mono); font-size: 1.2rem;
+  color: var(--text-main); text-decoration: none; font-weight: 600;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.brand-logo a:hover .logo-icon { text-shadow: 0 0 10px var(--purple-neon); }
+.logo-icon { color: var(--purple-neon); font-size: 1.4rem; transition: var(--transition-smooth); }
+
+.nav-links { display: flex; list-style: none; gap: 2rem; }
+.nav-links a {
+  font-family: var(--font-mono); color: var(--text-muted);
+  text-decoration: none; font-size: 0.85rem; letter-spacing: 1px;
+  transition: color var(--transition-smooth);
+  padding: 0.5rem 0; /* Aumenta a área de toque (tap target) para SEO Mobile */
+}
+.nav-links a:hover { color: var(--teal-neon); text-shadow: 0 0 8px rgba(0, 242, 254, 0.4); }
+
+.lang-selector { font-family: var(--font-mono); font-size: 0.85rem; }
+.lang-selector a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; padding: 0.5rem; }
+.lang-selector a[aria-current="page"], .lang-selector a:hover { color: var(--purple-neon); }
+.separator { margin: 0; opacity: 0.3; }
+
+/* =========================================
+   Estrutura Principal
+   ========================================= */
+main {
+  max-width: var(--container-width); margin: 0 auto;
+  padding: 0 1.5rem; width: 100%; flex-grow: 1;
+}
+.section-container { margin-bottom: 6rem; }
+
+/* =========================================
+   Hero Section
+   ========================================= */
+.hero-section {
+  padding: 6rem 0 5rem; text-align: center;
+  position: relative;
+}
+
+.hero-section::before {
+  content: ''; position: absolute;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(157, 78, 221, 0.15) 0%, transparent 70%);
+  z-index: -1; pointer-events: none;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem); /* Tipografia fluída para mobile/desktop */
+  font-weight: 800; letter-spacing: -1px;
+  color: var(--text-main); margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.subtitulo {
+  font-size: clamp(1rem, 2.5vw, 1.15rem); font-weight: 400; 
+  color: var(--teal-neon);
+  max-width: 650px; margin: 0 auto 2.5rem; line-height: 1.5;
+}
+
+.hero-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+/* Botões */
+.btn-primary, .btn-secondary {
+  font-family: var(--font-mono); font-size: 0.9rem; font-weight: 500;
+  padding: 0.8rem 1.5rem; border-radius: var(--radius-md);
+  text-decoration: none; transition: all var(--transition-smooth);
+  display: inline-flex; align-items: center; justify-content: center;
+  text-align: center;
+}
+.btn-primary {
+  background-color: transparent; color: var(--teal-neon);
+  border: 1px solid var(--teal-neon);
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.1);
+}
+.btn-primary:hover {
+  background-color: rgba(0, 242, 254, 0.1);
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+  transform: translateY(-2px);
+}
+.btn-secondary { color: var(--text-muted); border: 1px solid var(--text-muted); }
+.btn-secondary:hover { 
+  border-color: var(--purple-neon); color: var(--purple-neon);
+  background-color: rgba(157, 78, 221, 0.05);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   Sobre Mim (About Card)
+   ========================================= */
+.about-card {
+  background: linear-gradient(145deg, rgba(16, 11, 31, 0.85) 0%, rgba(7, 5, 18, 0.95) 100%);
+  border: 1px solid rgba(157, 78, 221, 0.2);
+  border-radius: var(--radius-md); padding: 2.5rem;
+  text-align: center; position: relative;
+}
+.about-card p {
+  font-size: 1.1rem; color: var(--text-muted); line-height: 1.8;
+  margin-bottom: 1.5rem; /* Respiro entre parágrafos */
+}
+.about-card p:last-child { margin-bottom: 0; }
+
+/* =========================================
+   Projetos & Cases (Grids e Cards)
+   ========================================= */
+.section-title {
+  font-family: var(--font-mono); font-size: 1.1rem;
+  color: var(--text-main); margin-bottom: 2.5rem;
+  text-transform: uppercase; letter-spacing: 2px;
+}
+
+.cases-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;
+}
+
+.case-card {
+  background-color: var(--bg-surface);
+  border: 1px solid rgba(157, 78, 221, 0.2); 
+  border-radius: var(--radius-md);
+  padding: 2rem; display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+  transition: all var(--transition-smooth);
+}
+
+.case-card:hover {
+  border-color: var(--teal-neon);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), inset 0 0 12px rgba(0, 242, 254, 0.05);
+  transform: translateY(-5px);
+}
+
+.case-header h3 {
+  font-size: 1.25rem; color: var(--text-main); margin-bottom: 1rem;
+  line-height: 1.4; transition: color var(--transition-smooth);
+}
+.case-card:hover .case-header h3 { color: var(--teal-neon); }
+
+.case-body { flex-grow: 1; margin-bottom: 1.5rem; }
+.case-body p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
+
+.tech-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; list-style: none; }
+.tech-tags li {
+  font-family: var(--font-mono); font-size: 0.75rem;
+  color: var(--purple-neon);
+  background-color: rgba(157, 78, 221, 0.08);
+  padding: 0.3rem 0.8rem; border-radius: 4px;
+  border: 1px solid rgba(157, 78, 221, 0.2);
+  transition: all var(--transition-smooth);
+}
+.case-card:hover .tech-tags li {
+  color: var(--teal-neon);
+  background-color: rgba(0, 242, 254, 0.08);
+  border-color: rgba(0, 242, 254, 0.3);
+}
+
+/* =========================================
+   Trajetória Estratégica (Timeline Vertical)
+   ========================================= */
+.timeline {
+  position: relative; margin: 2rem 0 3rem 1rem;
+  padding-left: 2rem; border-left: 1px solid rgba(157, 78, 221, 0.3); 
+}
+
+.timeline-item { position: relative; margin-bottom: 2.5rem; }
+.timeline-item:last-child { margin-bottom: 0; }
+
+.timeline-dot {
+  position: absolute; left: -2.35rem; top: 0.25rem;
+  width: 12px; height: 12px;
+  background-color: var(--bg-deep-space);
+  border: 2px solid rgba(157, 78, 221, 0.6);
+  border-radius: 50%;
+  transition: all var(--transition-smooth); z-index: 2;
+}
+
+.timeline-item:hover .timeline-dot {
+  background-color: var(--teal-neon); border-color: var(--teal-neon);
+  box-shadow: 0 0 12px rgba(0, 242, 254, 0.6); transform: scale(1.2);
+}
+
+.timeline-content { transition: transform var(--transition-smooth); }
+.timeline-item:hover .timeline-content { transform: translateX(5px); }
+
+.timeline-date {
+  display: block; font-family: var(--font-mono); font-size: 0.85rem;
+  color: var(--purple-neon); margin-bottom: 0.5rem; letter-spacing: 0.5px;
+}
+
+.timeline-title { font-size: 1.2rem; color: var(--text-main); margin-bottom: 0.5rem; }
+.timeline-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+
+.timeline-action { display: flex; justify-content: center; margin-top: 3rem; }
+
+/* =========================================
+   Footer e Divisórias
+   ========================================= */
+.dotted-divider {
+  border: none; border-top: 1px dashed rgba(157, 78, 221, 0.3); margin-bottom: 2rem;
+}
+
+.site-footer { text-align: center; padding: 2rem 1.5rem; margin-top: auto; }
+.site-footer p { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); }
+
+/* =========================================
+   Responsividade (Mobile-Friendly para SEO)
+   ========================================= */
+@media (max-width: 768px) {
+  /* Adapta o header para evitar quebrar o layout */
+  .navbar { 
+    height: auto; 
+    padding: 1rem; 
+    flex-direction: column; 
+    gap: 1rem; 
+  }
+  
+  .nav-links { 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 1rem; 
+  }
+  
+  /* Ajuste no offset do scroll para compensar o header maior no mobile */
+  html { scroll-padding-top: 130px; }
+  
+  .hero-section { padding: 4rem 0 3rem; }
+  
+  .hero-actions { 
+    flex-direction: column; 
+    width: 100%; 
+  }
+  
+  /* Botões ocupam 100% da largura para facilitar o clique no mobile */
+  .btn-primary, .btn-secondary { width: 100%; }
+  
+  .about-card { padding: 1.5rem; }
+  
+  /* Melhora o espaçamento da grid de projetos em telas menores */
+  .cases-grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================
+   Classes Controladas pelo Javascript
+   ========================================= */
+/* Estado inicial (Oculto e levemente abaixo) */
+.reveal-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Estado visível (Quando o JS adiciona a classe) */
+.reveal-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Destaque do menu ativo */
+.nav-links a.active {
+    color: var(--teal-neon);
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+    font-weight: 600;
+}
+
+/* =========================================
+   Balão de Contato (Dropdown)
+   ========================================= */
+.contact-dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.contact-balloon {
+    position: absolute;
+    top: 115%; /* Posiciona logo abaixo do botão */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(7, 5, 18, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    border-radius: var(--radius-md);
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 15px rgba(0, 242, 254, 0.1);
+    
+    /* Configuração de animação e ocultação inicial */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 100;
+}
+
+/* Classe ativada via JavaScript */
+.contact-balloon.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.contact-balloon a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-main);
+    text-decoration: none;
+    padding: 0.8rem 1rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    transition: background-color 0.2s, color 0.2s;
+    text-align: left;
+}
+
+.contact-balloon a:hover {
+    background-color: rgba(0, 242, 254, 0.1);
+    color: var(--teal-neon);
+}
+
+/* Estilo para os ícones baseados em texto */
+.icon-badge {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 26px;
+    height: 26px;
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    font-weight: bold;
+    background-color: rgba(157, 78, 221, 0.15);
+    color: var(--purple-neon);
+    border: 1px solid rgba(157, 78, 221, 0.4);
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.contact-balloon a:hover .icon-badge {
+    background-color: rgba(0, 242, 254, 0.2);
+    color: var(--teal-neon);
+    border-color: var(--teal-neon);
+    box-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+}
+
+/* =========================================
+   Tema Claro (Data Lab Mode)
+   ========================================= */
+[data-theme="light"] {
+  /* Inversão da Paleta */
+  --bg-deep-space: #f0f4f8;      
+  --bg-surface: #ffffff;         
+  --text-main: #1a1a24;          
+  --text-muted: #5a5a73;         
+  
+  /* Ajuste das cores neon para legibilidade no fundo claro */
+  --teal-neon: #007a82;          
+  --purple-neon: #6b21a8;        
+}
+
+body {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Mantém as estrelas visíveis no modo claro, mas com tom escuro/suave */
+[data-theme="light"] .space-grid-bg {
+  background-color: var(--bg-deep-space);
+  background-image: 
+    radial-gradient(#2b2542, rgba(43, 37, 66, .2) 2px, transparent 4px),
+    radial-gradient(#2b2542, rgba(43, 37, 66, .15) 1px, transparent 3px),
+    radial-gradient(#2b2542, rgba(43, 37, 66, .1) 2px, transparent 4px),
+    radial-gradient(rgba(107, 33, 168, .3), rgba(107, 33, 168, .1) 2px, transparent 3px);
+  animation: move-twink-back 900s linear infinite;
+}
+
+/* Nebulosa suave adaptada para o fundo claro */
+[data-theme="light"] .space-grid-bg::after {
+  background: 
+    radial-gradient(circle at 15% 50%, rgba(107, 33, 168, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(0, 122, 130, 0.03) 0%, transparent 50%);
+}
+
+/* Ajustes finos de contraste para o modo claro */
+[data-theme="light"] .navbar { background: rgba(240, 244, 248, 0.85); }
+[data-theme="light"] .about-card { background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%); }
+[data-theme="light"] .case-card { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); }
+
+/* Estilização do Botão de Tema */
+.theme-btn {
+  background: transparent;
+  border: 1px solid var(--text-muted);
+  color: var(--text-main);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: all var(--transition-smooth);
+}
+.theme-btn:hover {
+  border-color: var(--teal-neon);
+  box-shadow: 0 0 10px rgba(0, 122, 130, 0.2);
+}
