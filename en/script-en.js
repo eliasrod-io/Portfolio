@@ -13,21 +13,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Adds the class that makes the element appear
+                // Adds the class that makes the element visible
                 entry.target.classList.add('visible');
 
-                // Optional: Uncomment the line below if you want the animation to run only once
+                // Uncomment to stop observing the element after the first reveal
                 // observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Selects all elements that will have the reveal effect
+    // Selects all elements that should use the scroll reveal effect
     const elementsToReveal = document.querySelectorAll(
         '.case-card, .timeline-item, .about-card'
     );
     
-    // Adds the initial hidden class and starts observing
+    // Adds the initial hidden state and starts observing each element
     elementsToReveal.forEach(el => {
         el.classList.add('reveal-element');
         revealObserver.observe(el);
@@ -44,11 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
         let currentSectionId = "";
 
         sections.forEach((section) => {
-            // Gets the section's distance from the top
+            // Gets the section's position and height
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
             
-            // 150px offset to account for the sticky navbar
+            // Uses a 150px offset to account for the sticky navigation bar
             if (scrollY >= sectionTop - 150) {
                 currentSectionId = section.getAttribute("id");
             }
@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
         navLinks.forEach((link) => {
             link.classList.remove("active");
 
+            // Activates the navigation link associated with the current section
             if (link.getAttribute("href") === `#${currentSectionId}`) {
                 link.classList.add("active");
             }
@@ -74,17 +75,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (contactBtn && contactBalloon) {
 
-        // Toggles visibility when the button is clicked
+        // Toggles the contact balloon when the button is clicked
         contactBtn.addEventListener('click', (event) => {
             event.stopPropagation();
 
-            // Prevents the click from immediately closing the balloon
+            // Updates the expanded state and prevents immediate closing
             const isExpanded = contactBalloon.classList.toggle('show');
 
             contactBtn.setAttribute('aria-expanded', isExpanded);
         });
 
-        // Closes the balloon when clicking anywhere outside it
+        // Closes the contact balloon when clicking outside of it
         document.addEventListener('click', (event) => {
             if (
                 !contactBalloon.contains(event.target) &&
@@ -95,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Closes the balloon when pressing the ESC key
+        // Closes the contact balloon when the Escape key is pressed
         document.addEventListener('keydown', (event) => {
             if (
                 event.key === 'Escape' &&
@@ -116,10 +117,10 @@ const themeToggleBtn = document.getElementById('theme-toggle');
 const moonIcon = document.querySelector('.moon-icon');
 const sunIcon = document.querySelector('.sun-icon');
 
-// Checks whether a theme is stored in localStorage
+// Retrieves the previously selected theme from localStorage
 const currentTheme = localStorage.getItem('theme');
 
-// Applies the stored theme when the page loads
+// Applies the stored light theme when the page loads
 if (currentTheme === 'light') {
     document.documentElement.setAttribute('data-theme', 'light');
 
@@ -128,7 +129,7 @@ if (currentTheme === 'light') {
 }
 
 
-// Toggle logic on click
+// Handles theme changes when the toggle button is clicked
 themeToggleBtn.addEventListener('click', () => {
     let theme = document.documentElement.getAttribute('data-theme');
     
